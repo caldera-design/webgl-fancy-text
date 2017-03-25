@@ -1,5 +1,5 @@
 {
-  "name": "webgl-text",
+  "name": "webgl-fancy-text",
   "version": "1.0.5",
   "description": "Render Text in WebGL",
   "main": "lib/index.js",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/caldera-design/webgl-text.git"
+    "url": "https://github.com/caldera-design/webgl-fancy-text.git"
   },
   "peerDependencies": {},
   "dependencies": {

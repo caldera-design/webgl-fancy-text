@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDev = !isProduction;
-const libraryName = 'webgl-text';
+const libraryName = 'webgl-fancy-text';
 
 module.exports = {
     target: 'web',

@@ -9,6 +9,7 @@ type RenderParams = {
     position: Vertex;
     resolution: Size;
     center: Vertex;
+    mouse: Vertex;
     rotation: number;
 };
 
@@ -30,6 +31,9 @@ const program: ProgramParams = {
           type: WebGLTypes.Float
       },
       center: {
+          type: WebGLTypes.Vec2
+      },
+      mouse: {
           type: WebGLTypes.Vec2
       }
   },
@@ -56,7 +60,7 @@ export default class WebGLText extends Program {
         this.triangles = triangles;
     }
 
-    public render({ position, rotation, center, resolution }: RenderParams) {
+    public render({ position, rotation, center, resolution, mouse }: RenderParams) {
         const { triangles } = this;
         if (!triangles || !triangles.length) {
             return;
@@ -66,6 +70,7 @@ export default class WebGLText extends Program {
         this.begin();
         this.setUniform('resolution', new Float32Array([width, height]));
         this.setUniform('center', new Float32Array([center.x, center.y]));
+        this.setUniform('mouse', new Float32Array([mouse.x, mouse.y]));
         this.setUniform('rotation', rotation);
         this.setAttribute('position', vertices);
         this.gl.drawArrays(this.gl.TRIANGLES, 0, vertices.length / 2);
